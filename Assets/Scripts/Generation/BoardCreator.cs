@@ -6,7 +6,7 @@ public class BoardCreator : MonoBehaviour
 {
     public enum TileType
     {
-        Wall, Floor, TopWall, BottomWall, LeftWall, RightWall
+        Wall, Floor, TopWall, BorderWall,
     }
 
     public static int minNumRooms, maxNumRooms;
@@ -25,11 +25,9 @@ public class BoardCreator : MonoBehaviour
     public GameObject[] floorTiles;
     public GameObject[] wallTiles;
     public GameObject[] topWallTiles;
-    public GameObject[] bottomWallTiles;
-    public GameObject[] leftWallTiles;
-    public GameObject[] rightWallTiles;
     public GameObject[] outerWallTiles;
 
+    public GameObject[] borderWallTiles;
 
     private TileType[][] tiles;
     private Room[] rooms;
@@ -108,23 +106,57 @@ public class BoardCreator : MonoBehaviour
             Room currentRoom = rooms[i];        //Текущая комната
 
             //По всей ширине текущей комнаты
-            for(int j = 0; j < currentRoom.roomWidth; j++)
+            for(int j = -1; j <= currentRoom.roomWidth + 1; j++)
             {
                 int xCoord = currentRoom.xPos + j;
-                tiles[xCoord][currentRoom.yPos + currentRoom.roomHeight] = TileType.TopWall ;
-                tiles[xCoord][currentRoom.yPos - 1] = TileType.BottomWall;
-                tiles[currentRoom.xPos + currentRoom.roomWidth][currentRoom.yPos + currentRoom.roomHeight] = TileType.RightWall;
-                tiles[currentRoom.xPos - 1][currentRoom.yPos + currentRoom.roomHeight] = TileType.LeftWall;
+                
                 //Для каждого горизонтального тайла идем наверх
-                for (int k = 0;k< currentRoom.roomHeight; k++)
+                for (int k = -1;k <= currentRoom.roomHeight + 1; k++)
                 {
                     int yCoord = currentRoom.yPos + k;
 
-                    tiles[xCoord][yCoord] = TileType.Floor;        //Задаем тайлы пола на указанные позиции
-                    tiles[currentRoom.xPos - 1][yCoord] = TileType.LeftWall;
-                    tiles[currentRoom.xPos + currentRoom.roomWidth][yCoord] = TileType.RightWall;
+                    //Если на месте уже есть стена или пол, ничего не делаем
+                    if (tiles[xCoord][yCoord] == TileType.TopWall || tiles[xCoord][yCoord] == TileType.Floor || tiles[xCoord][yCoord] == TileType.BorderWall)
+                        continue;
+
+                    if(j == -1)
+                        tiles[xCoord][yCoord] = TileType.BorderWall;                                //Южная граница
+
+                    else if(j == currentRoom.roomWidth + 1)
+                        tiles[xCoord][yCoord] = TileType.BorderWall;                                //Северная граница
+
+                    else if(k == -1)
+                        tiles[xCoord][yCoord] = TileType.BorderWall;                                //Западная граница
+
+                    else if(k == currentRoom.roomHeight)
+                        tiles[xCoord][yCoord] = TileType.TopWall;           //Задаем тайлы верхних стен   
+
+                    else if (k == currentRoom.roomHeight + 1)
+                        tiles[xCoord][yCoord] = TileType.BorderWall;                                //Восточная граница
+                    else
+                        tiles[xCoord][yCoord] = TileType.Floor;                                                 //Задаем тайлы пола на указанные позиции
+
+                                    
                 }
             }
+
+            for(int j = -1;j <= currentRoom.roomWidth; j++)
+            {
+                int xCoord = currentRoom.xPos + j;
+                for (int k = -1;k <= currentRoom.roomHeight + 1; k++)
+                {
+                    int yCoord = currentRoom.yPos + k;
+
+                
+
+          
+                                             
+                    
+                    
+                    
+                }
+            }
+
         }
     }
 
@@ -163,6 +195,37 @@ public class BoardCreator : MonoBehaviour
                 }
 
                 tiles[xCoord][yCoord] = TileType.Floor;
+
+                //Задаем стены и граниы коридора
+                if (currentCorridor.direction == Direction.North || currentCorridor.direction == Direction.South)
+                {
+                    if (tiles[xCoord + 1][yCoord] == TileType.TopWall || tiles[xCoord + 1][yCoord] == TileType.Floor || tiles[xCoord + 1][yCoord] == TileType.BorderWall)
+                        continue;
+                    else
+                        tiles[xCoord + 1][yCoord] = TileType.BorderWall;
+
+                    if (tiles[xCoord - 1][yCoord] == TileType.TopWall || tiles[xCoord - 1][yCoord] == TileType.Floor || tiles[xCoord - 1][yCoord] == TileType.BorderWall)
+                        continue;
+                    else
+                        tiles[xCoord - 1][yCoord] = TileType.BorderWall;
+                                   
+                }
+                else
+                {
+                    if (tiles[xCoord][yCoord + 1] == TileType.TopWall || tiles[xCoord][yCoord + 1] == TileType.Floor)
+                        continue;
+                    else
+                    {
+                        tiles[xCoord][yCoord + 1] = TileType.TopWall;
+                        tiles[xCoord][yCoord + 2] = TileType.BorderWall;
+                    }
+
+                    if (tiles[xCoord][yCoord - 1] == TileType.TopWall || tiles[xCoord][yCoord - 1] == TileType.Floor || tiles[xCoord][yCoord - 1] == TileType.BorderWall)
+                        continue;
+                    else
+                        tiles[xCoord][yCoord - 1] = TileType.BorderWall;
+                    
+                }
             }
         }
     }
@@ -184,15 +247,8 @@ public class BoardCreator : MonoBehaviour
                 else if (tiles[i][j] == TileType.TopWall)
                     InstantiateFromArray(topWallTiles, i, j);
 
-                else if (tiles[i][j] == TileType.BottomWall)
-                    InstantiateFromArray(bottomWallTiles, i, j);
-
-                else if (tiles[i][j] == TileType.LeftWall)
-                    InstantiateFromArray(leftWallTiles, i, j);
-
-                else if (tiles[i][j] == TileType.RightWall)
-                    InstantiateFromArray(rightWallTiles, i, j);
-
+                else if (tiles[i][j] == TileType.BorderWall)
+                    InstantiateFromArray(borderWallTiles, i, j);
             }
         }
     }
@@ -250,3 +306,5 @@ public class BoardCreator : MonoBehaviour
         tileInstance.transform.parent = boardHolder.transform;
     }
 }
+
+

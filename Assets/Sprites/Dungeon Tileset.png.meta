@@ -59,6 +59,9 @@ TextureImporter:
   - first:
       213: 8298970618400879912
     second: Dungeon Tileset_18
+  - first:
+      213: 6060841936741910792
+    second: Dungeon Tileset_19
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -157,7 +160,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bf23afe15dea86479b518bf3ba5c462
+      spriteID: cc40d868390a25947b4c4adae62864f5
       internalID: 7319660020867015614
       vertices: []
       indices: 
@@ -178,7 +181,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f42051d866f187f4f9ccef0366e3f4b1
+      spriteID: 8d044b68f58a61648b2067608103d935
       internalID: 7093938053018542480
       vertices: []
       indices: 
@@ -199,7 +202,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fffc7f99386e5646be3a9672ef7ee82
+      spriteID: b1d3144bfdec957449e07480b0cbc515
       internalID: -526531636390550520
       vertices: []
       indices: 
@@ -220,7 +223,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8073a8cf985db014ab3098731033e0d0
+      spriteID: 31e7a4d20097ccc46b249970f5e3a626
       internalID: 2129528729450248842
       vertices: []
       indices: 
@@ -241,7 +244,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b6edb64c8c89e4ab6449118ed88792
+      spriteID: e679a03f4e9ea6640bf02a527819abc7
       internalID: -1912833364362715542
       vertices: []
       indices: 
@@ -262,7 +265,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57c2870426089a44d8fcf9704cc48ca3
+      spriteID: ab6e6eb21a68d4d4b868e4c312e6f03b
       internalID: -3660235010204966243
       vertices: []
       indices: 
@@ -283,7 +286,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dd0cae8a2f09284fb56afd874935548
+      spriteID: 04a433088d2a4d34a9fafe3299860f25
       internalID: -4366309172702055871
       vertices: []
       indices: 
@@ -304,7 +307,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 885bcfbaf0e117e4ea2b0a791c91f296
+      spriteID: 033c98cdf902f9142b8b829d6a3c0f93
       internalID: -364591887113254240
       vertices: []
       indices: 
@@ -325,7 +328,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 622983bc71ded4946bd0ba11e855cd27
+      spriteID: d4dc9a304f7448146b46677777840400
       internalID: -8417820502167076081
       vertices: []
       indices: 
@@ -346,7 +349,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75baf5ed866dd224c8d185d3b63c44c4
+      spriteID: 8ec8967b30b25b349b9a8a41bc598cbe
       internalID: 4894573251990377957
       vertices: []
       indices: 
@@ -367,7 +370,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5155d0bcb7b369a40b61ed8b9ede49fe
+      spriteID: bbc5315b94a039440b34ef944e0a535b
       internalID: -5497513627006011467
       vertices: []
       indices: 
@@ -388,7 +391,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bae974e10da11684eb95ce4278dc05c1
+      spriteID: 7fccde39a9a7cc64ea21c61c71e2a54e
       internalID: -697558308745582095
       vertices: []
       indices: 
@@ -409,7 +412,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e3a707628dca8542a49fa5e559c8634
+      spriteID: 8eefbb30655eb6f4a975dbecf5c6dd3e
       internalID: -1717276756755929874
       vertices: []
       indices: 
@@ -430,7 +433,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d946ad2a3832c8498e2e7fc5289d165
+      spriteID: 9f2a1e5b26d1a604bbc25e0546e79ca7
       internalID: 5634192782950917865
       vertices: []
       indices: 
@@ -451,7 +454,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7b45b1eb2b13fc47a46cf6061a4ac4b
+      spriteID: 509f69a41802e794486d4a6546950798
       internalID: 2487996301561019191
       vertices: []
       indices: 
@@ -472,7 +475,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44b471e2bca0e5546bd3b8706aa3dea1
+      spriteID: 0fc73ca93bd5a424bb1061bb08e40b76
       internalID: 7048901979985802438
       vertices: []
       indices: 
@@ -493,7 +496,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f1babb31bbcd2842bcd1b4150b916e9
+      spriteID: 97137f602f86de84ba8878104c7e80fc
       internalID: 6750605301695920570
       vertices: []
       indices: 
@@ -514,7 +517,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74238509dd3995c4fb7cc9b6df0a3c58
+      spriteID: e0f327207feb01b4bb45943091fc3e0d
       internalID: 7916994609634643332
       vertices: []
       indices: 
@@ -535,8 +538,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75d82d96a84ebb4478a06651bb37d25c
+      spriteID: b8ebccb24809b884393729262ef71be3
       internalID: 8298970618400879912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon Tileset_19
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 414
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c23c3b91f00a78489b207e1b0fac782
+      internalID: 6060841936741910792
       vertices: []
       indices: 
       edges: []
