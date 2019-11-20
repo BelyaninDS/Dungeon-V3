@@ -4,24 +4,25 @@ using UnityEngine;
 
 public enum Direction
 {
-    North, South, East, West,
+    North, East, South, West,
 }
 
 public class Corridor
 {
-    public int startXpos, startYpos;
+    public int startXpos;
+    public int startYpos;
     public int corridorLength;
-    public Direction direcrion;
+    public Direction direction;
 
     public int EndPositionX
     {
         get
         {
-            if (direcrion == Direction.North || direcrion == Direction.South)
+            if (direction == Direction.North || direction == Direction.South)
                 return startXpos;
-            if (direcrion == Direction.East)
-                return startXpos - corridorLength + 1;
-            return startXpos = corridorLength + 1; 
+            if (direction == Direction.East)
+                return startXpos + corridorLength - 1;
+            return startXpos - corridorLength + 1; 
        }
     }
 
@@ -29,23 +30,23 @@ public class Corridor
     {
         get
         {
-            if (direcrion == Direction.East || direcrion == Direction.West)
+            if (direction == Direction.East || direction == Direction.West)
                 return startYpos;
-            if (direcrion == Direction.North)
-                return startYpos - corridorLength + 1;
-            return startYpos = corridorLength + 1;
+            if (direction == Direction.North)
+                return startYpos + corridorLength - 1;
+            return startYpos - corridorLength + 1;
         }
     }
 
     public void SetupCorridor(Room room, IntRange length, IntRange roomWidth, IntRange roomHeight, int columns,int rows, bool firstCorridor)
     {
-        direcrion = (Direction)Random.Range(0, 4);
+        direction = (Direction)Random.Range(0, 3);
 
         Direction oppositeDirection = (Direction)(((int)room.enteringCorridor + 2) % 4);
 
         if(!firstCorridor && direction == oppositeDirection)
         {
-            int directionInt = (int)direcrion;
+            int directionInt = (int)direction;
             directionInt++;
             directionInt = directionInt % 4;
             direction = (Direction)directionInt;
@@ -55,35 +56,33 @@ public class Corridor
 
         int maxLength = length.m_Max;
 
-        switch (direcrion)
+        //Направление коридора
+        switch (direction)
         {
             case Direction.North:
-                startXpos = Random.Range(room.xPos, room.xPos + roomWidth - 1);
-                startYpos = room.yPos + roomHeight;
-                maxLength = rows - startYpos - roomHeight.m_Min;
-                break;
-
-            case Direction.South:
-                startXpos = Random.Range(room.xPos, room.xPos + roomWidth);
-                startYpos = room.yPos;
+                startXpos = Random.Range(room.xPos, room.xPos + room.roomWidth - 1);
+                startYpos = room.yPos + room.roomHeight;
                 maxLength = rows - startYpos - roomHeight.m_Min;
                 break;
 
             case Direction.East:
-                startXpos = room.xPos + roomWidth;
-                startYpos = Random.Range(room.yPos, room.yPos + roomHeight - 1);
+                startXpos = room.xPos + room.roomWidth;
+                startYpos = Random.Range(room.yPos, room.yPos + room.roomHeight - 1);
                 maxLength = columns - startXpos - roomWidth.m_Min;
                 break;
 
-            case Direction.North:
-                startXpos = room.xPos;
-                startYpos = Random.Range(room.yPos, room.yPos + roomHeight - 1);
+            case Direction.South:
+                startXpos = Random.Range(room.xPos, room.xPos + room.roomWidth);
+                startYpos = room.yPos - 1;
                 maxLength = startYpos - roomHeight.m_Min;
+                break;
+
+            case Direction.West:
+                startXpos = room.xPos - 1;
+                startYpos = Random.Range(room.yPos, room.yPos + room.roomHeight);
+                maxLength = startXpos - roomWidth.m_Min;
                 break;
         }
         corridorLength = Mathf.Clamp(corridorLength, 1, maxLength);
-    }
-
-
-    
+    }   
 }
